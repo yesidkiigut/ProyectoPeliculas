@@ -9,7 +9,7 @@ function App() {
   return (
     <div>        
       <header>
-      <h1 className='title'>🎬..Peliculiculas..🎬</h1>
+      <h1 className='title'>🎬..Peliculiculas Premiun..🎬</h1>
       </header>
       <MisRutas/>
     </div>
