@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { get } from "../data/httpClient"
 import { getMovieImg } from "../utils/getMovieImg"; 
+import "../pages/MovieDetails.css"
 
 export function MovieDetails() {
     const { peliculaId } = useParams();
@@ -20,15 +21,15 @@ export function MovieDetails() {
     console.log('respuesta consulta',peliculas);
 
     return ( 
-    <div>
+    <div className="detailsContainer">
         <img src={imgUrl}
-        alt={peliculas.title}/>
-        <div>
-          <p><strong>Titulo: </strong>{peliculas.title}</p>
+        alt={peliculas.title} className="movieImage"/>
+        <div className="col movieDetails">
+          <p className="titlePelicula"><strong>Titulo: </strong>{peliculas.title}</p>
           <p><strong>Genero: </strong>{generos.name}</p>
           <p><strong>Descripcion: </strong>{peliculas.overview}</p>
-          <p><strong>Puntuacion: </strong>{peliculas.vote_average}</p>
-          <p><strong>Votos: </strong>{peliculas.vote_count}</p>
+          <p><strong>Puntuacion: ⭐ </strong>{peliculas.vote_average}</p>
+          <p><strong>Votos: 🚀 </strong>{peliculas.vote_count}</p>
         </div>
     </div>
         
