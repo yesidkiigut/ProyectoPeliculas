@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import { get } from "../data/httpClient";
-import { Moviecard } from "../components/MovieCard";
+import { MovieCard } from "../components/MovieCard";
 import "../components/ConstextMovieCard.css"
 
 export function ContexMovieCard(){
@@ -13,9 +13,10 @@ export function ContexMovieCard(){
         });
     }, []);
     
-    return(<ul className="container">
-        {movies.map((peliculasitem)=>(
-            <Moviecard peliculasitem={peliculasitem}/>
+    return(
+        <ul className="container">
+        {movies.map((movie)=>(
+            <MovieCard key={movie.id} movie={movie}/>
         ))}
     </ul>)
 }
