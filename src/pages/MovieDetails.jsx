@@ -6,10 +6,12 @@ import { getMovieImg } from "../utils/getMovieImg";
 export function MovieDetails() {
     const { peliculaId } = useParams();
     const [peliculas, setPelicula] = useState([]);
+    const [generos, setGeneros] = useState([]);
 
     useEffect(() => {
-      get("/pelicula/" + peliculaId).then((data) =>{
+      get("/movie/"+peliculaId).then((data) =>{
         setPelicula(data)
+        setGeneros(data.genres[0])
       })
     }, [peliculaId]);
 
@@ -19,7 +21,15 @@ export function MovieDetails() {
 
     return ( 
     <div>
-        <img src={imgUrl}  />
+        <img src={imgUrl}
+        alt={peliculas.title}/>
+        <div>
+          <p><strong>Titulo: </strong>{peliculas.title}</p>
+          <p><strong>Genero: </strong>{generos.name}</p>
+          <p><strong>Descripcion: </strong>{peliculas.overview}</p>
+          <p><strong>Puntuacion: </strong>{peliculas.vote_average}</p>
+          <p><strong>Votos: </strong>{peliculas.vote_count}</p>
+        </div>
     </div>
         
     );
